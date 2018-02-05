@@ -2,7 +2,7 @@ package com.kodilla;
 
 public class Calculator {
 
-    public void substraction(int a, int b) {
+    public void subtraction(int a, int b) {
         int d = a-b;
         System.out.println("DIFF = " + d);
         System.out.println("There you go! Difference is calculated :)");
@@ -17,7 +17,7 @@ public class Calculator {
     public static void main(String[] args) {
 
         Calculator calculator = new Calculator();
-        calculator.substraction(10,5);
+        calculator.subtraction(10,5);
         calculator.addition(10,5);
 
     }
