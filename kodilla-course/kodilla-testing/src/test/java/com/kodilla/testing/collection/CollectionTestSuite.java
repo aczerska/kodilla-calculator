@@ -14,7 +14,7 @@ public class CollectionTestSuite {
 
     @AfterClass
     public static void afterClass() {
-        System.out.println("Test Suite: end");
+        System.out.println("\nTest Suite: end");
     }
 
     @Before
@@ -26,30 +26,56 @@ public class CollectionTestSuite {
     public void after() {
         System.out.println("Test Case: end");
     }
+
     @Test
     public void testOddNumbersExterminatorEmptyList() {
         // Given
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
-        OddNumbersExterminator exterminator = new OddNumbersExterminator(numbers);
-        // When
+        ArrayList<Integer> numbers = new ArrayList<>();
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+        ArrayList<Integer> testEmptyList = new ArrayList<>();
 
+        System.out.println("Listing contents of empty testing table used for comparison:");
+        for(Integer testValue : testEmptyList) {
+            System.out.println(testValue);
+        }
+        // When
+        ArrayList<Integer> emptyList = exterminator.exterminate(numbers);
+        System.out.println("Listing contents of resulting empty table:");
+        for(Integer value : emptyList) {
+            System.out.println(value);
+        }
         // Then
+        Assert.assertEquals(testEmptyList, emptyList);
     }
+
     @Test
     public void testOddNumbersExterminatorNormalList() {
         // Given
-        ArrayList<Integer> numbers = new ArrayList<Integer>();
+        ArrayList<Integer> numbers = new ArrayList<>();
         for(int n = 1; n < 11; n++) {
             numbers.add(n);
         }
-        OddNumbersExterminator exterminator = new OddNumbersExterminator(numbers);
+
+        ArrayList<Integer> testEvenValues = new ArrayList<>();
+        testEvenValues.add(2);
+        testEvenValues.add(4);
+        testEvenValues.add(6);
+        testEvenValues.add(8);
+        testEvenValues.add(10);
+
+        OddNumbersExterminator exterminator = new OddNumbersExterminator();
+
+        System.out.println("Listing contents of testing table used for comparison with even values:");
+        for(Integer testValue : testEvenValues) {
+            System.out.println(testValue);
+        }
         // When
-
+        ArrayList<Integer> evenValues = exterminator.exterminate(numbers);
+        System.out.println("Listing contents of resulting table of even values:");
+        for(Integer value : evenValues) {
+            System.out.println(value);
+        }
         // Then
+        Assert.assertEquals(testEvenValues, evenValues);
     }
-
-
-
-
-
 }

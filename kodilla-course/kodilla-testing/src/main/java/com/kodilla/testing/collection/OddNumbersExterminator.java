@@ -3,11 +3,7 @@ package com.kodilla.testing.collection;
 import java.util.ArrayList;
 
 public class OddNumbersExterminator {
-    private ArrayList<Integer> numbers;
 
-    public OddNumbersExterminator(ArrayList<Integer> numbers) {
-        this.numbers = numbers;
-    }
 
     public ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
         ArrayList<Integer> evenValues = new ArrayList<Integer>();
