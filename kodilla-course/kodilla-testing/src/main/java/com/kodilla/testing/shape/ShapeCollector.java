@@ -17,8 +17,8 @@ public class ShapeCollector {
 
     }
 
-    public void getFigure(int n) {
-
+    public Shape getFigure(int n) {
+        return null;
     }
 
     public void showFigures() {

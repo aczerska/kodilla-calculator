@@ -38,20 +38,6 @@ public class ShapeCollectorTestSuite {
     }
 
     @Test
-    public void testRemoveNonexistentFigure() {
-        System.out.println("Testing removeFigure() for non-existing figure");
-        // Given
-        ShapeCollector sh = new ShapeCollector();
-        Shape circle = new Circle(4);
-        Shape square = new Square (2);
-        sh.addFigure(circle);
-        // When
-        sh.removeFigure(square);
-        // Then
-        Assert.assertEquals(1, sh.getShapes().size());
-    }
-
-    @Test
     public void testGetFigure() {
         System.out.println("Testing getFigure()");
         // Given
@@ -64,9 +50,7 @@ public class ShapeCollectorTestSuite {
         sh.addFigure(triangle);
         // When
         sh.getFigure(2);
-        //
-        Assert.assertEquals(triangle, sh.getShapes().get(2));
-        Assert.assertEquals(2,sh.getShapes().get(2).getField(), 0.1);
-
+        // Then
+        Assert.assertEquals(triangle, sh.getFigure(2));
     }
 }
