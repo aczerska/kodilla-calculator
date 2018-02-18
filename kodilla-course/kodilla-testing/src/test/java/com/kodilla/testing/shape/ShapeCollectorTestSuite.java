@@ -8,7 +8,7 @@ public class ShapeCollectorTestSuite {
 
     @After
     public void afterEveryTest() {
-        System.out.println("Unit test completed.");
+        System.out.println("Unit test completed.\n");
     }
 
     @Test
@@ -20,8 +20,8 @@ public class ShapeCollectorTestSuite {
         // When
         sh.addFigure(square);
         // Then
-        Assert.assertEquals(1,sh.getShapes().size());
-        Assert.assertEquals(9,sh.getShapes().get(0).getField(),0.1);
+        Assert.assertEquals(1, sh.getShapes().size());
+        Assert.assertEquals(9, sh.getShapes().get(0).getField(), 0.1);
     }
 
     @Test
@@ -43,8 +43,8 @@ public class ShapeCollectorTestSuite {
         // Given
         ShapeCollector sh = new ShapeCollector();
         Shape circle = new Circle(4);
-        Shape square = new Square (2);
-        Shape triangle = new  Triangle(2,2);
+        Shape square = new Square(2);
+        Shape triangle = new Triangle(2, 2);
         sh.addFigure(circle);
         sh.addFigure(square);
         sh.addFigure(triangle);

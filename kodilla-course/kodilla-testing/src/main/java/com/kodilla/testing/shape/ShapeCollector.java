@@ -14,11 +14,11 @@ public class ShapeCollector {
     }
 
     public void removeFigure(Shape shape) {
-
+        shapes.remove(shape);
     }
 
     public Shape getFigure(int n) {
-        return null;
+        return shapes.get(n);
     }
 
     public void showFigures() {
