@@ -22,6 +22,8 @@ public class ShapeCollector {
     }
 
     public void showFigures() {
-
+        for(Shape shape : shapes) {
+            System.out.println(shape.getShapeName() + ", " + shape.getField());
+        }
     }
 }
