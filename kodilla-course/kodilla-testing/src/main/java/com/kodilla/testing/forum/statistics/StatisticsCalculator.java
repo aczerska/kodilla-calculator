@@ -36,7 +36,13 @@ public class StatisticsCalculator {
         postsCount = statistics.postsCount();
         commentsCount = statistics.commentsCount();
         usersCount = statistics.usersNames().size();
-        if (postsCount == 0 || usersCount == 0) {
+        if (postsCount == 0) {
+            commentsCount = 0;
+            averageCommentCountPerPost = 0;
+            averageCommentCountPerUser = 0;
+        } else if(usersCount == 0) {
+            postsCount = 0;
+            commentsCount = 0;
             averageCommentCountPerPost = 0;
             averageCommentCountPerUser = 0;
             averagePostCountPerUser = 0;
