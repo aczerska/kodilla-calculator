@@ -43,11 +43,11 @@ public class StatisticsCalculator {
         } else if (commentsCount == 0) {
             averageCommentCountPerPost = 0;
             averageCommentCountPerUser = 0;
-            averagePostCountPerUser = postsCount / usersCount;
+            averagePostCountPerUser = (double)postsCount / (double)usersCount;
         } else {
-            averageCommentCountPerPost = commentsCount / postsCount;
-            averageCommentCountPerUser = commentsCount / usersCount;
-            averagePostCountPerUser = postsCount / usersCount;
+            averageCommentCountPerPost = (double)commentsCount / (double)postsCount;
+            averageCommentCountPerUser = (double)commentsCount / (double)usersCount;
+            averagePostCountPerUser = (double)postsCount / (double)usersCount;
         }
     }
 

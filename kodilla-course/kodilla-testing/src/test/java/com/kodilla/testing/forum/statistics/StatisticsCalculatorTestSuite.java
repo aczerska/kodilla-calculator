@@ -19,7 +19,7 @@ public class StatisticsCalculatorTestSuite {
         // When
         double usersCount = (double)statisticsCalculator.getUsersCount();
         // Then
-        Assert.assertEquals(0,usersCount,0.1);
+        Assert.assertEquals(0,usersCount,0.0);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class StatisticsCalculatorTestSuite {
         // When
         double usersCount = (double)statisticsCalculator.getUsersCount();
         // Then
-        Assert.assertEquals(100,usersCount,0.1);
+        Assert.assertEquals(100,usersCount,0.0);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class StatisticsCalculatorTestSuite {
         // When
         double postsCount = (double)statisticsCalculator.getPostsCount();
         // Then
-        Assert.assertEquals(0,postsCount,0.1);
+        Assert.assertEquals(0,postsCount,0.0);
     }
 
     @Test
@@ -62,7 +62,7 @@ public class StatisticsCalculatorTestSuite {
         // When
         double postsCount = (double)statisticsCalculator.getPostsCount();
         // Then
-        Assert.assertEquals(1000,postsCount,0.1);
+        Assert.assertEquals(1000,postsCount,0.0);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class StatisticsCalculatorTestSuite {
         // When
         double postsCount = (double)statisticsCalculator.getCommentsCount();
         // Then
-        Assert.assertEquals(0,postsCount,0.1);
+        Assert.assertEquals(0,postsCount,0.0);
     }
 
     @Test
@@ -93,9 +93,9 @@ public class StatisticsCalculatorTestSuite {
         double averagePostCountPerUser = statisticsCalculator.getAveragePostCountPerUser();
         double averageCommentCountPerUser = statisticsCalculator.getAverageCommentCountPerUser();
         // Then
-        Assert.assertEquals(0, averageCommentCountPerPost,0.1);
-        Assert.assertEquals(0, averageCommentCountPerUser,0.1);
-        Assert.assertEquals(0, averagePostCountPerUser,0.1);
+        Assert.assertEquals(0, averageCommentCountPerPost,0.0);
+        Assert.assertEquals(0, averageCommentCountPerUser,0.0);
+        Assert.assertEquals(0, averagePostCountPerUser,0.0);
     }
 
     @Test
@@ -114,7 +114,7 @@ public class StatisticsCalculatorTestSuite {
         // When
         double averageCommentCountPerPost = statisticsCalculator.getAverageCommentCountPerPost();
         // Then
-        Assert.assertEquals(0.01, averageCommentCountPerPost,0.1);
+        Assert.assertEquals(0.01, averageCommentCountPerPost,0.0);
     }
     @Test
     public void testCalculateAdvStatisticsCommentsMoreThanPosts() {
@@ -132,6 +132,6 @@ public class StatisticsCalculatorTestSuite {
         // When
         double averageCommentCountPerPost = statisticsCalculator.getAverageCommentCountPerPost();
         // Then
-        Assert.assertEquals(10, averageCommentCountPerPost,0.1);
+        Assert.assertEquals(10, averageCommentCountPerPost,0.0);
     }
 }
