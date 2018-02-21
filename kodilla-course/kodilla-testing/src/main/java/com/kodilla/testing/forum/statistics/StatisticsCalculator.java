@@ -2,22 +2,22 @@ package com.kodilla.testing.forum.statistics;
 
 public class StatisticsCalculator {
     private Statistics statistics;
-    private int usersCount;
-    private int postsCount;
-    private int commentsCount;
+    private double usersCount;
+    private double postsCount;
+    private double commentsCount;
     private double averagePostCountPerUser;
     private double averageCommentCountPerUser;
     private double averageCommentCountPerPost;
 
-    public int getUsersCount() {
+    public double getUsersCount() {
         return usersCount;
     }
 
-    public int getPostsCount() {
+    public double getPostsCount() {
         return postsCount;
     }
 
-    public int getCommentsCount() {
+    public double getCommentsCount() {
         return commentsCount;
     }
 
@@ -37,17 +37,27 @@ public class StatisticsCalculator {
         postsCount = statistics.postsCount();
         commentsCount = statistics.commentsCount();
         usersCount = statistics.usersNames().size();
-        averageCommentCountPerPost = commentsCount / postsCount;
-        averageCommentCountPerUser = commentsCount / usersCount;
-        averagePostCountPerUser = postsCount / usersCount;
+        if (postsCount == 0 || usersCount == 0) {
+            averageCommentCountPerPost = 0;
+            averageCommentCountPerUser = 0;
+            averagePostCountPerUser = 0;
+        } else if (commentsCount == 0) {
+            averageCommentCountPerPost = 0;
+            averageCommentCountPerUser = 0;
+            averagePostCountPerUser = postsCount / usersCount;
+        } else {
+            averageCommentCountPerPost = commentsCount / postsCount;
+            averageCommentCountPerUser = commentsCount / usersCount;
+            averagePostCountPerUser = postsCount / usersCount;
+        }
     }
 
-    public void showStatistics() {
-        System.out.println("Number of forum posts: " + postsCount);
-        System.out.println("Number of forum comments: " + commentsCount);
-        System.out.println("Number of forum users: " + usersCount);
-        System.out.println("Average of comments per post: " + averageCommentCountPerPost);
-        System.out.println("Average of posts per user: " + averagePostCountPerUser);
-        System.out.println("Average of comments per user: " + averageCommentCountPerUser);
-    }
+        public void showStatistics() {
+            System.out.println("Number of forum posts: " + postsCount);
+            System.out.println("Number of forum comments: " + commentsCount);
+            System.out.println("Number of forum users: " + usersCount);
+            System.out.println("Average of comments per post: " + averageCommentCountPerPost);
+            System.out.println("Average of posts per user: " + averagePostCountPerUser);
+            System.out.println("Average of comments per user: " + averageCommentCountPerUser);
+        }
 }
