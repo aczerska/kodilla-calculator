@@ -17,7 +17,7 @@ public class StatisticsCalculatorTestSuite {
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         // When
-        double usersCount = statisticsCalculator.getUsersCount();
+        double usersCount = (double)statisticsCalculator.getUsersCount();
         // Then
         Assert.assertEquals(0,usersCount,0.1);
     }
@@ -34,7 +34,7 @@ public class StatisticsCalculatorTestSuite {
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         // When
-        double usersCount = statisticsCalculator.getUsersCount();
+        double usersCount = (double)statisticsCalculator.getUsersCount();
         // Then
         Assert.assertEquals(100,usersCount,0.1);
     }
@@ -47,7 +47,7 @@ public class StatisticsCalculatorTestSuite {
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         // When
-        double postsCount = statisticsCalculator.getPostsCount();
+        double postsCount = (double)statisticsCalculator.getPostsCount();
         // Then
         Assert.assertEquals(0,postsCount,0.1);
     }
@@ -60,7 +60,7 @@ public class StatisticsCalculatorTestSuite {
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         // When
-        double postsCount = statisticsCalculator.getPostsCount();
+        double postsCount = (double)statisticsCalculator.getPostsCount();
         // Then
         Assert.assertEquals(1000,postsCount,0.1);
     }
@@ -73,7 +73,7 @@ public class StatisticsCalculatorTestSuite {
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
         statisticsCalculator.calculateAdvStatistics(statisticsMock);
         // When
-        double postsCount = statisticsCalculator.getCommentsCount();
+        double postsCount = (double)statisticsCalculator.getCommentsCount();
         // Then
         Assert.assertEquals(0,postsCount,0.1);
     }

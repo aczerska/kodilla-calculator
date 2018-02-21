@@ -1,23 +1,22 @@
 package com.kodilla.testing.forum.statistics;
 
 public class StatisticsCalculator {
-    private Statistics statistics;
-    private double usersCount;
-    private double postsCount;
-    private double commentsCount;
+    private int usersCount;
+    private int postsCount;
+    private int commentsCount;
     private double averagePostCountPerUser;
     private double averageCommentCountPerUser;
     private double averageCommentCountPerPost;
 
-    public double getUsersCount() {
+    public int getUsersCount() {
         return usersCount;
     }
 
-    public double getPostsCount() {
+    public int getPostsCount() {
         return postsCount;
     }
 
-    public double getCommentsCount() {
+    public int getCommentsCount() {
         return commentsCount;
     }
 
@@ -52,12 +51,12 @@ public class StatisticsCalculator {
         }
     }
 
-        public void showStatistics() {
-            System.out.println("Number of forum posts: " + postsCount);
-            System.out.println("Number of forum comments: " + commentsCount);
-            System.out.println("Number of forum users: " + usersCount);
-            System.out.println("Average of comments per post: " + averageCommentCountPerPost);
-            System.out.println("Average of posts per user: " + averagePostCountPerUser);
-            System.out.println("Average of comments per user: " + averageCommentCountPerUser);
+    public void showStatistics() {
+        System.out.println("Number of forum posts: " + postsCount);
+        System.out.println("Number of forum comments: " + commentsCount);
+        System.out.println("Number of forum users: " + usersCount);
+        System.out.println("Average of comments per post: " + averageCommentCountPerPost);
+        System.out.println("Average of posts per user: " + averagePostCountPerUser);
+        System.out.println("Average of comments per user: " + averageCommentCountPerUser);
         }
 }
