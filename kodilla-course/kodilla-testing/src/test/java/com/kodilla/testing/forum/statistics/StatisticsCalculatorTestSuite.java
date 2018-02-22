@@ -2,7 +2,6 @@ package com.kodilla.testing.forum.statistics;
 
 import org.junit.Assert;
 import org.junit.Test;
-import java.util.ArrayList;
 import java.util.List;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -12,8 +11,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsUsersCountMin() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(0);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(10);
         when(statisticsMock.postsCount()).thenReturn(10);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -30,6 +30,7 @@ public class StatisticsCalculatorTestSuite {
         Statistics statisticsMock = mock(Statistics.class);
         List listMock = mock(List.class);
         when(listMock.size()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(10);
         when(statisticsMock.postsCount()).thenReturn(10);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -44,11 +45,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsPostsCountMin() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        for(int n = 0; n < 100; n++) {
-            usersNames.add("DummyName");
-        }
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(10);
         when(statisticsMock.postsCount()).thenReturn(0);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -63,11 +62,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsPostsCountMax() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        for(int n = 0; n < 100; n++) {
-            usersNames.add("DummyName");
-        }
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(10);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -82,11 +79,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsCommentsCountMin() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        for(int n = 0; n < 100; n++) {
-            usersNames.add("DummyName");
-        }
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(0);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -101,8 +96,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsMinValues() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(0);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(0);
         when(statisticsMock.postsCount()).thenReturn(0);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -121,11 +117,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsPostsMoreThanComments() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        for(int n = 0; n < 100; n++) {
-            usersNames.add("DummyName");
-        }
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(1);
         when(statisticsMock.postsCount()).thenReturn(100);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -140,11 +134,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsCommentsMoreThanPosts() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        for(int n = 0; n < 100; n++) {
-            usersNames.add("DummyName");
-        }
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(100);
         when(statisticsMock.postsCount()).thenReturn(10);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -159,11 +151,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsCommentsZero() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        for(int n = 0; n < 100; n++) {
-            usersNames.add("DummyName");
-        }
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(0);
         when(statisticsMock.postsCount()).thenReturn(1000);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -182,11 +172,9 @@ public class StatisticsCalculatorTestSuite {
     public void testCalculateAdvStatisticsPostsZero() {
         // Given
         Statistics statisticsMock = mock(Statistics.class);
-        List<String> usersNames = new ArrayList<>();
-        for(int n = 0; n < 100; n++) {
-            usersNames.add("DummyName");
-        }
-        when(statisticsMock.usersNames()).thenReturn(usersNames);
+        List listMock = mock(List.class);
+        when(listMock.size()).thenReturn(100);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(1000);
         when(statisticsMock.postsCount()).thenReturn(0);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();
@@ -207,6 +195,7 @@ public class StatisticsCalculatorTestSuite {
         Statistics statisticsMock = mock(Statistics.class);
         List listMock = mock(List.class);
         when(listMock.size()).thenReturn(0);
+        when(statisticsMock.usersNames()).thenReturn(listMock);
         when(statisticsMock.commentsCount()).thenReturn(1000);
         when(statisticsMock.postsCount()).thenReturn(100);
         StatisticsCalculator statisticsCalculator = new StatisticsCalculator();

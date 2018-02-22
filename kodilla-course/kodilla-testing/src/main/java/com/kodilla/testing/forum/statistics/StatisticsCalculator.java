@@ -36,12 +36,13 @@ public class StatisticsCalculator {
         postsCount = statistics.postsCount();
         commentsCount = statistics.commentsCount();
         usersCount = statistics.usersNames().size();
-        if (postsCount == 0) {
+        if(usersCount == 0) {
+            postsCount = 0;
             commentsCount = 0;
             averageCommentCountPerPost = 0;
             averageCommentCountPerUser = 0;
-        } else if(usersCount == 0) {
-            postsCount = 0;
+            averagePostCountPerUser = 0;
+        } else if(postsCount == 0) {
             commentsCount = 0;
             averageCommentCountPerPost = 0;
             averageCommentCountPerUser = 0;
@@ -64,5 +65,5 @@ public class StatisticsCalculator {
         System.out.println("Average of comments per post: " + averageCommentCountPerPost);
         System.out.println("Average of posts per user: " + averagePostCountPerUser);
         System.out.println("Average of comments per user: " + averageCommentCountPerUser);
-        }
+    }
 }
