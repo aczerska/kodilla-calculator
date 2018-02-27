@@ -3,35 +3,26 @@ package com.kodilla.testing.library;
 import java.util.Objects;
 
 public class Book {
-    private String author;
     private String title;
+    private String author;
     private int publicationYear;
 
-    public Book(String author, String title, int publicationYear) {
-        this.author = author;
+    public Book(String title, String author, int publicationYear) {
         this.title = title;
+        this.author = author;
         this.publicationYear = publicationYear;
-    }
-
-    public String getAuthor() {
-        return author;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public int getPublicationYear() {
-        return publicationYear;
+    public String getAuthor() {
+        return author;
     }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "author='" + author + '\'' +
-                ", title='" + title + '\'' +
-                ", publicationYear=" + publicationYear +
-                '}';
+    public int getPublicationYear() {
+        return publicationYear;
     }
 
     @Override
@@ -40,13 +31,22 @@ public class Book {
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
         return publicationYear == book.publicationYear &&
-                Objects.equals(author, book.author) &&
-                Objects.equals(title, book.title);
+                Objects.equals(title, book.title) &&
+                Objects.equals(author, book.author);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(author, title, publicationYear);
+        return Objects.hash(title, author, publicationYear);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", publicationYear=" + publicationYear +
+                '}';
     }
 }

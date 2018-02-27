@@ -6,7 +6,8 @@ public interface LibraryDatabase {
     // lists books having title beginning with titleFragment
     List<Book> listBooksWithCondition(String titleFragment);
 
-    // lists books borrowed by libraryUser
+    // list books borrowed by libraryUser
+
     List<Book> listBooksInHandsOf(LibraryUser libraryUser);
 
     // try to rent a book for libraryUser
