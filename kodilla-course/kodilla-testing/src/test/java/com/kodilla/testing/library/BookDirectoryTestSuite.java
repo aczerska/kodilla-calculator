@@ -87,7 +87,7 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testListBooksInHandsOf0Books() {
+    public void testZeroBooksReturnedWhenUserDidntBorrowABook() {
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -103,7 +103,7 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testListBooksInHandsOf1Book() {
+    public void testOneBookReturnedWhenUserBorrowed1Book() {
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -119,7 +119,7 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testListBooksInHandsOf1BookWhich() {
+    public void testReturnTitleOfOneBookWhenUserBorrowed1Book() {
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -135,7 +135,7 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testListBooksInHandsOf5Books() {
+    public void testFiveBooksReturnedWhenUserBorrowed5Books() {
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -150,7 +150,7 @@ public class BookDirectoryTestSuite {
         assertEquals(5,theListOf5Books.size());
     }
     @Test
-    public void testListBooksInHandsOf5BooksWhich() {
+    public void testReturnTitleOfFifthBookWhenUserBorrowed5Books() {
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
