@@ -1,5 +1,6 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
@@ -18,5 +19,14 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+
+        System.out.println("\nBeautification task #7.1");
+        PoemBeautifier poemBeautifier = new PoemBeautifier();
+
+        poemBeautifier.beautify("TEXT",(text -> "abc" + text + "abc"));
+        poemBeautifier.beautify("TEXT",(text -> text.replace('T', 't')));
+        poemBeautifier.beautify("poem",(text -> "ABC" + text.concat("ABC")));
+        poemBeautifier.beautify("poem",(text -> text.toUpperCase()));
+        poemBeautifier.beautify("This was a beautiful day",(text -> text.substring(11,24).replace('a', 'A')));
     }
 }
