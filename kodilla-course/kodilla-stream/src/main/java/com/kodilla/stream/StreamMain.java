@@ -27,7 +27,7 @@ public class StreamMain {
         poemBeautifier.beautify("TEXT",(text -> "abc" + text + "abc"));
         poemBeautifier.beautify("TEXT",(text -> text.replace('T', 't')));
         poemBeautifier.beautify("poem",(text -> "ABC" + text.concat("ABC")));
-        poemBeautifier.beautify("poem",(text -> text.toUpperCase()));
+        poemBeautifier.beautify("poem", String::toUpperCase);
         poemBeautifier.beautify("This was a beautiful day",(text -> text.substring(11,24).replace('a', 'A')));
 
         System.out.println("\nSTREAM");
