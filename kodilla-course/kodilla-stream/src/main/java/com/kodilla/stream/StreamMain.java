@@ -12,12 +12,11 @@ public class StreamMain {
     public static void main(String[] args) {
         Forum theForum = new Forum();
 
-        Map<Integer, ForumUser> theResultMapOfForumUsers = theForum.getUserList().stream()
+        theForum.getUserList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
                 .filter(forumUser -> Period.between(forumUser.getBirthDate(), LocalDate.now()).getYears() >= 20)
                 .filter(forumUser -> forumUser.getPostCount() >= 1)
-                .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser));
-
-        theResultMapOfForumUsers.forEach((k, v) -> System.out.println("Key: " + k + ", Value: " + v));
+                .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser))
+                .forEach((k, v) -> System.out.println("Key: " + k + ", Value: " + v));
     }
 }
