@@ -5,7 +5,6 @@ import com.kodilla.stream.forumuser.ForumUser;
 
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StreamMain {
