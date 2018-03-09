@@ -119,22 +119,6 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testReturnTitleOfOneBookWhenUserBorrowed1Book() {
-        // Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        LibraryUser libraryUser = new LibraryUser("John", "Novak","654321");
-        List<Book> resultListOf1Book = generateListOfNBooks(1);
-        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOf1Book);
-
-        // When
-        List<Book> theListOf1Book = bookLibrary.listBooksInHandsOf(libraryUser);
-
-        // Then
-        assertEquals("Title 1", theListOf1Book.get(0).getTitle());
-    }
-
-    @Test
     public void testFiveBooksReturnedWhenUserBorrowed5Books() {
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
@@ -148,20 +132,5 @@ public class BookDirectoryTestSuite {
 
         // Then
         assertEquals(5,theListOf5Books.size());
-    }
-    @Test
-    public void testReturnTitleOfFifthBookWhenUserBorrowed5Books() {
-        // Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
-        LibraryUser libraryUser = new LibraryUser("John", "Novak","654321");
-        List<Book> resultListOf5Books = generateListOfNBooks(5);
-        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(resultListOf5Books);
-
-        // When
-        List<Book> theListOf5Books = bookLibrary.listBooksInHandsOf(libraryUser);
-
-        // Then
-        assertEquals("Title 5",theListOf5Books.get(4).getTitle());
     }
 }
