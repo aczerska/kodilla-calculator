@@ -4,8 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WorldTestSuite {
 
@@ -18,7 +16,6 @@ public class WorldTestSuite {
         Continent europe = new Continent();
         Continent africa = new Continent();
 
-        List<Continent> continentList = new ArrayList<>();
         world.addContinent(asia);
         world.addContinent(africa);
         world.addContinent(europe);
@@ -30,7 +27,6 @@ public class WorldTestSuite {
         Country nigeria = new Country();
         Country kongo = new Country();
 
-        List<Country> countryList = new ArrayList<>();
         asia.addCountry(japan);
         asia.addCountry(korea);
         europe.addCountry(poland);
