@@ -10,12 +10,12 @@ public class ArrayOperationsTestSuite {
     public void testGetAverage() {
         // Given
         int[] numbers = new int[6];
-        Array.setInt(numbers,0,1);
-        Array.setInt(numbers,1,11);
-        Array.setInt(numbers,2,2);
-        Array.setInt(numbers,3,12);
-        Array.setInt(numbers,4,22);
-        Array.setInt(numbers,5,3);
+        numbers[0] = 1;
+        numbers[1] = 11;
+        numbers[2] = 2;
+        numbers[3] = 12;
+        numbers[4] = 22;
+        numbers[5] = 3;
 
         // When
         double averageValue = ArrayOperations.getAverage(numbers);
