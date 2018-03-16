@@ -1,6 +1,5 @@
 package com.kodilla.stream.array;
 
-import java.lang.reflect.Array;
 import java.util.stream.IntStream;
 
 public interface ArrayOperations {
