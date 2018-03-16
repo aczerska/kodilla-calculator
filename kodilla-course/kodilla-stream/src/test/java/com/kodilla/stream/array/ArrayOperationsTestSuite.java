@@ -7,13 +7,7 @@ public class ArrayOperationsTestSuite {
     @Test
     public void testGetAverage() {
         // Given
-        int[] numbers = new int[6];
-        numbers[0] = 1;
-        numbers[1] = 11;
-        numbers[2] = 2;
-        numbers[3] = 12;
-        numbers[4] = 22;
-        numbers[5] = 3;
+        int[] numbers = {1,11,2,12,22,3};
 
         // When
         double averageValue = ArrayOperations.getAverage(numbers);
