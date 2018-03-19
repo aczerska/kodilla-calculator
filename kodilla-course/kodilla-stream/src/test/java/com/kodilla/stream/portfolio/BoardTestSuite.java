@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 
+import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 
 public class BoardTestSuite {
@@ -153,7 +154,7 @@ public class BoardTestSuite {
         double average = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .mapToInt(t -> Period.between(t.getCreated(), LocalDate.now()).getDays())
+                .mapToLong(t -> DAYS.between(t.getCreated(), LocalDate.now()))
                 .average()
                 .orElseThrow(()-> new IllegalStateException("Unable to calculate average"));
 
