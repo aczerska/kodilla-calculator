@@ -11,7 +11,8 @@ public class FlightSearchLogic {
         flightMap.put("London", false);
         flightMap.put("Madrid", false);
 
-        if ((flightMap.containsKey(flight.getArrivalAirport()) && flightMap.containsKey(flight.getDepartureAirport()))) {
+        if (flightMap.containsKey(flight.getArrivalAirport()) && flightMap.get(flight.getArrivalAirport())
+                && flightMap.containsKey(flight.getDepartureAirport()) && flightMap.get(flight.getDepartureAirport())) {
             System.out.println("Chosen route is available, you can proceed with reservation procedures");
         } else {
             throw new RouteNotFoundException("Arrival and/or departure airport do not exist in data base.");
