@@ -5,6 +5,7 @@ import java.util.*;
 public class FlightSearchLogic {
 
     Map<String, Boolean> flightMap = new HashMap<>();
+    Flight flight = new Flight("London", "Warsaw");
 
     public Map<String, Boolean> populateMap(Map<String,Boolean> map) {
         flightMap.put("Amsterdam", true);
@@ -15,21 +16,20 @@ public class FlightSearchLogic {
     }
 
     public boolean checkAirport(Map<String,Boolean> map, Flight flight) {
-        boolean operate;
+        populateMap(flightMap);
         if (flightMap.containsKey(flight.getArrivalAirport()) &&
                 flightMap.get(flight.getArrivalAirport()) &&
                 flightMap.containsKey(flight.getDepartureAirport()) &&
                 flightMap.get(flight.getDepartureAirport())) {
-            operate = true;
+            return true;
         } else {
-            operate = false;
+            return false;
         }
-        return operate;
     }
 
-    public void findFlight(boolean operate) throws RouteNotFoundException {
+    public void findFlight() throws RouteNotFoundException {
 
-        if (operate) {
+        if (checkAirport(flightMap, flight)) {
             System.out.println("Chosen route is available, you can proceed with reservation procedures");
         } else {
             throw new RouteNotFoundException("Arrival and/or departure airport do not exist in data base.");
