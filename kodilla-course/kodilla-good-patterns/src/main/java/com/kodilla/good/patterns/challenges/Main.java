@@ -7,8 +7,8 @@ public class Main {
 
         MovieStore movieStore = new MovieStore();
 
-        String finalListOfMovies = movieStore.getMovies().entrySet().stream()
-                .flatMap(movies -> movies.getValue().stream())
+        String finalListOfMovies = movieStore.getMovies().values().stream()
+                .flatMap(movies -> movies.stream())
                 .collect(Collectors.joining("!", "", ""));
 
         System.out.println(finalListOfMovies);
