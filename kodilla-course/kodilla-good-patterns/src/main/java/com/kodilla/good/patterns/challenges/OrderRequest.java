@@ -39,6 +39,6 @@ public class OrderRequest {
     }
 
     public double calculatePrice() {
-        return getQuantity() * getUnitPrice();
+        return unitPrice * quantity;
     }
 }
