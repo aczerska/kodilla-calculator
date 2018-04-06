@@ -5,7 +5,8 @@ public class ShoesShelfStatus implements ShelfMonitoringService {
     private static int initialQuantity = 100;
 
     @Override
-    public int updateQuantity(OrderRequest orderRequest) {
-        return initialQuantity - orderRequest.getQuantity();
+    public void updateQuantity(OrderRequest orderRequest) {
+        int currentQuantity = initialQuantity - orderRequest.getQuantity();
+        System.out.println("\nQuantity of items left on the shelf: " + currentQuantity);
     }
 }
