@@ -15,20 +15,17 @@ public class FlightSearchLogic {
         return flightMap;
     }
 
-    public boolean checkAirport(Map<String, Boolean> map, Flight flight) {
+    public boolean checkAirport(Flight flight) {
         populateMap(flightMap);
-        if (flightMap.containsKey(flight.getArrivalAirport()) &&
+        return (flightMap.containsKey(flight.getArrivalAirport()) &&
                 flightMap.get(flight.getArrivalAirport()) &&
                 flightMap.containsKey(flight.getDepartureAirport()) &&
-                flightMap.get(flight.getDepartureAirport())) {
-            return true;
-        }
-        return false;
+                flightMap.get(flight.getDepartureAirport()));
     }
 
     public void findFlight() throws RouteNotFoundException {
 
-        if (checkAirport(flightMap, flight)) {
+        if (checkAirport(flight)) {
             System.out.println("Chosen route is available, you can proceed with reservation procedures");
         } else {
             throw new RouteNotFoundException("Arrival and/or departure airport do not exist in data base.");
