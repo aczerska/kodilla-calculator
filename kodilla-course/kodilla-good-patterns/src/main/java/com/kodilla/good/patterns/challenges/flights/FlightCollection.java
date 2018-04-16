@@ -3,7 +3,7 @@ package com.kodilla.good.patterns.challenges.flights;
 import java.util.HashSet;
 import java.util.Set;
 
-public class FlightCollection {
+public final class FlightCollection {
     private static final String WARSAW = "Warsaw";
     private static final String GDANSK = "Gdansk";
     private static final String POZNAN = "Poznan";
@@ -14,7 +14,7 @@ public class FlightCollection {
     private static final String KATOWICE = "Katowice";
     private static final String RZESZOW = "Rzeszow";
 
-    public Set<Flight> getFligtsCollection() {
+    public static Set<Flight> getFligtsCollection() {
         Set<Flight> flightsCollection = new HashSet<>();
         flightsCollection.add(new Flight(WARSAW,GDANSK));
         flightsCollection.add(new Flight(WARSAW,POZNAN));

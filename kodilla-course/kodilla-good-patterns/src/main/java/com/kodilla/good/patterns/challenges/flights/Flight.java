@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.challenges.flights;
 
 import java.util.Objects;
 
-public class Flight {
+public final class Flight {
     private final String departureAirport;
     private final String arrivalAirport;
 
@@ -32,6 +32,14 @@ public class Flight {
 
     public String getArrivalAirport() {
         return arrivalAirport;
+    }
+
+    @Override
+    public String toString() {
+        return "Flight {" +
+                "Departure Airport -> '" + departureAirport + '\'' +
+                ", Arrival Airport -> '" + arrivalAirport + '\'' +
+                '}';
     }
 }
 
