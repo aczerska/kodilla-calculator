@@ -2,18 +2,14 @@ package com.kodilla.good.patterns.challenges.food2door;
 
 public class Application {
     public static void main(String[] args) {
+        Supplier supplier;
+        Product product = new Product("Gluten free oats");
+        System.out.println(product.getProductName());
 
-        Supplier supplier1 = new ExtraFoodShop();
-        Supplier supplier2 = new HealthyShop();
-        Supplier supplier3 = new GlutenFreeShop();
-
-        System.out.println(supplier1.getDescription());
-        System.out.println(supplier1.getTransactionSummary(supplier1.process()));
-
-        System.out.println(supplier2.getDescription());
-        System.out.println(supplier2.getTransactionSummary(supplier2.process()));
-
-        System.out.println(supplier3.getDescription());
-        System.out.println(supplier3.getTransactionSummary(supplier3.process()));
+        if(product.getProductName().equals(product.getProductsCollection().containsKey(product.getProductName()))) {
+            supplier = product.getProductsCollection().get(product.getProductName());
+            System.out.println(supplier.getDescription());
+            System.out.println(supplier.getTransactionSummary(supplier.process()));
+        }
     }
 }

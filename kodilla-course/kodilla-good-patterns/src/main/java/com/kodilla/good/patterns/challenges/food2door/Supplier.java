@@ -1,11 +1,17 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
+import java.util.Objects;
+
 public abstract class Supplier {
 
     private String supplierName;
-    private String productName;
-    private double onShelfQuantity;
     private double orderedQuantity;
+    private double onShelfQuantity;
+    private Product product;
+
+    public Supplier(String supplierName) {
+        this.supplierName = supplierName;
+    }
 
     public String getSupplierName() {
         return supplierName;
@@ -13,14 +19,6 @@ public abstract class Supplier {
 
     public void setSupplierName(String supplierName) {
         this.supplierName = supplierName;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     public double getOnShelfQuantity() {
@@ -39,9 +37,22 @@ public abstract class Supplier {
         this.orderedQuantity = orderedQuantity;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Supplier supplier = (Supplier) o;
+        return Objects.equals(supplierName, supplier.supplierName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(supplierName);
+    }
+
     public String getDescription() {
         return "\nSupplier: " + getSupplierName() +
-                "\nProduct name: "  + getProductName() +
                 "\nProduct availability: " + getOnShelfQuantity();
     }
 
@@ -50,11 +61,11 @@ public abstract class Supplier {
     public String getTransactionSummary(boolean processed) {
         if(processed) {
             return "\nTransaction completed successfully. \nYou just ordered: " + getOrderedQuantity() +
-                    " of " + getProductName() + " from " + getSupplierName() +
+                    " of " + product.getProductName() + " from " + getSupplierName() +
                     "\nRemaining available quantity of product: " + (getOnShelfQuantity() - getOrderedQuantity()) +
                     "\n------------------------------";
         }
-        return "\nTransaction could not be finalized.\nRemaining available quantity of " + getProductName() +
+        return "\nTransaction could not be finalized.\nRemaining available quantity of " + product.getProductName() +
                 "in " + getSupplierName() + " is: " + getOnShelfQuantity();
     }
 }
