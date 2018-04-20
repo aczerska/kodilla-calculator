@@ -1,24 +1,20 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
+import java.util.Map;
 import java.util.Objects;
 
 public abstract class Supplier {
 
     private String supplierName;
-    private double orderedQuantity;
     private double onShelfQuantity;
-    private Product product;
 
-    public Supplier(String supplierName) {
+    public Supplier(String supplierName, double onShelfQuantity) {
         this.supplierName = supplierName;
+        this.onShelfQuantity = onShelfQuantity;
     }
 
     public String getSupplierName() {
         return supplierName;
-    }
-
-    public void setSupplierName(String supplierName) {
-        this.supplierName = supplierName;
     }
 
     public double getOnShelfQuantity() {
@@ -29,43 +25,39 @@ public abstract class Supplier {
         this.onShelfQuantity = onShelfQuantity;
     }
 
-    public double getOrderedQuantity() {
-        return orderedQuantity;
-    }
-
-    public void setOrderedQuantity(double orderedQuantity) {
-        this.orderedQuantity = orderedQuantity;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Supplier supplier = (Supplier) o;
-        return Objects.equals(supplierName, supplier.supplierName);
+        return Double.compare(supplier.onShelfQuantity, onShelfQuantity) == 0 &&
+                Objects.equals(supplierName, supplier.supplierName);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(supplierName);
+        return Objects.hash(supplierName, onShelfQuantity);
     }
 
-    public String getDescription() {
-        return "\nSupplier: " + getSupplierName() +
-                "\nProduct availability: " + getOnShelfQuantity();
+    public abstract boolean process(String selectedProduct, double selectedProductQuantity, Map<String, Supplier> allProduct);
+
+    public void getDescription(String selectedProduct, double selectedProductQuantity) {
+        System.out.println("Description of transaction: " + "\nProduct ordered: " + selectedProduct +
+                "\nSupplier: " + getSupplierName() +
+                "\nOrdered quantity: " + selectedProductQuantity);
     }
 
-    public abstract boolean process();
+    public void getTransactionSummary(boolean processed, String selectedProduct, double selectedProductQuantity) {
+        if (processed) {
+            System.out.println("\nTransaction completed successfully. \nYou just ordered: " + selectedProductQuantity +
+                    " of " + selectedProduct + " from " + getSupplierName() +
+                    "\nRemaining available quantity of product: " + getOnShelfQuantity());
+        } else {
 
-    public String getTransactionSummary(boolean processed) {
-        if(processed) {
-            return "\nTransaction completed successfully. \nYou just ordered: " + getOrderedQuantity() +
-                    " of " + product.getProductName() + " from " + getSupplierName() +
-                    "\nRemaining available quantity of product: " + (getOnShelfQuantity() - getOrderedQuantity()) +
-                    "\n------------------------------";
+            System.out.println("\nTransaction could not be processed.\nRemaining available quantity of " +
+                    selectedProduct + " in " + getSupplierName() + " is: " + getOnShelfQuantity() +
+                    "\nChange quantity of your order and try again!");
         }
-        return "\nTransaction could not be finalized.\nRemaining available quantity of " + product.getProductName() +
-                "in " + getSupplierName() + " is: " + getOnShelfQuantity();
     }
 }

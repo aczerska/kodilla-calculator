@@ -1,15 +1,21 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
+import java.util.Map;
+
 public class Application {
     public static void main(String[] args) {
-        Supplier supplier;
-        Product product = new Product("Gluten free oats");
-        System.out.println(product.getProductName());
+        String selectedProduct = "Grass fed beef";
+        double selectedProductQuantity = 500;
 
-        if(product.getProductName().equals(product.getProductsCollection().containsKey(product.getProductName()))) {
-            supplier = product.getProductsCollection().get(product.getProductName());
-            System.out.println(supplier.getDescription());
-            System.out.println(supplier.getTransactionSummary(supplier.process()));
+        ProductsCollection productsCollection = new ProductsCollection();
+        Map<String,Supplier> allProducts = productsCollection.getAllProductsCollection();
+
+        if(productsCollection.getAllProductsCollection().containsKey(selectedProduct)) {
+            Supplier supplier = allProducts.get(selectedProduct);
+            supplier.getDescription(selectedProduct,selectedProductQuantity);
+            boolean processed = supplier.process(selectedProduct, selectedProductQuantity,allProducts);
+            supplier.getTransactionSummary(processed,selectedProduct,selectedProductQuantity);
         }
+
     }
 }
