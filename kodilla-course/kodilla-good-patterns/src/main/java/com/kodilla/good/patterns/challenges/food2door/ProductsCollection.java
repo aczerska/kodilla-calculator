@@ -8,7 +8,7 @@ public class ProductsCollection {
     private final static String BEEF = "Grass fed beef";
     private final static String OATS = "Gluten free oats";
 
-    public Map<String, Supplier> getAllProductsCollection() {
+    public static Map<String, Supplier> getAllProductsCollection() {
         Map<String, Supplier> allProducts = new HashMap<>();
         allProducts.put(APPLES, new HealthyShop("Healthy Shop", 20));
         allProducts.put(BEEF, new ExtraFoodShop("Extra Food Shop", 10));
