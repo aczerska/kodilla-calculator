@@ -10,28 +10,32 @@ public class BoardConfig {
     @Autowired
     @Qualifier("toDoList")
     TaskList taskList1;
+
+    @Autowired
     @Qualifier("inProgressList")
     TaskList taskList2;
+
+    @Autowired
     @Qualifier("doneList")
     TaskList taskList3;
 
     @Bean
     public Board board() {
-        return new Board(taskList1,taskList2,taskList3);
+        return new Board(taskList1, taskList2, taskList3);
     }
 
     @Bean(name = "toDoList")
-    public TaskList getToDoList() {
+    public TaskList createToDoList() {
         return new TaskList();
     }
 
     @Bean(name = "inProgressList")
-    public TaskList getInProgressList() {
+    public TaskList createInProgressList() {
         return new TaskList();
     }
 
     @Bean(name = "doneList")
-    public TaskList getDoneList() {
+    public TaskList createDoneList() {
         return new TaskList();
     }
 }
