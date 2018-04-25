@@ -7,24 +7,21 @@ import org.junit.Test;
 import singleton.SettingsFileEngine;
 
 public class SettingsFileEngineTestSuite {
-    private static SettingsFileEngine settingsFileEngine;
-
     @BeforeClass
     public static void openSettingsFile() {
-        settingsFileEngine = new SettingsFileEngine();
-        settingsFileEngine.open("myapp.settings");
+        SettingsFileEngine.getInstance().open("myapp.settings");
     }
 
     @AfterClass
     public static void closeSettingsFile() {
-        settingsFileEngine.close();
+        SettingsFileEngine.getInstance().close();
     }
 
     @Test
     public void testGetFileName() {
         //Given
         //When
-        String fileName = settingsFileEngine.getFileName();
+        String fileName = SettingsFileEngine.getInstance().getFileName();
         System.out.println("Opened: " + fileName);
         //Then
         Assert.assertEquals("myapp.settings", fileName);
@@ -34,7 +31,7 @@ public class SettingsFileEngineTestSuite {
     public void testLoadSettings() {
         //Given
         //When
-        boolean result = settingsFileEngine.loadSettings();
+        boolean result = SettingsFileEngine.getInstance().loadSettings();
         //Then
         Assert.assertTrue(result);
     }
@@ -43,7 +40,7 @@ public class SettingsFileEngineTestSuite {
     public void testSaveSettings() {
         //Given
         //When
-        boolean result = settingsFileEngine.saveSettings();
+        boolean result = SettingsFileEngine.getInstance().saveSettings();
         //Then
         Assert.assertTrue(result);
     }
