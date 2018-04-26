@@ -13,6 +13,6 @@ public class LoggerTestSuite {
         //When
         String lastLog = Logger.getInstance().getLastLog();
         //Then
-        Assert.assertEquals(lastLog, "This is TEST!");
+        Assert.assertEquals("This is TEST!",lastLog );
     }
 }
