@@ -39,7 +39,7 @@ public class TaskFactoryTestSuite {
         String paintingTaskName = driving.getTaskName();
         driving.executeTask();
         //Then
-        Assert.assertEquals(true, driving.isTaskExecuted());
+        Assert.assertTrue(driving.isTaskExecuted());
         Assert.assertEquals("Standard night route", paintingTaskName);
     }
 
