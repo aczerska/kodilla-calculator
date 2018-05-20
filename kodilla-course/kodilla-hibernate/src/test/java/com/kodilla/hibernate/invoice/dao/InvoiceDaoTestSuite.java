@@ -81,9 +81,9 @@ public class InvoiceDaoTestSuite {
 
 //        //Cleanup
 //        try {
-//            invoiceDao.deleteById(invoice1Id);
-//            invoiceDao.deleteById(invoice2Id);
-//            invoiceDao.deleteById(invoice3Id);
+//            invoiceDao.delete(invoice1Id);
+//            invoiceDao.delete(invoice2Id);
+//            invoiceDao.delete(invoice3Id);
 //        } catch (Exception e) {
 //            //do nothing
 //        }
