@@ -14,6 +14,10 @@ import java.util.Date;
         @NamedQuery(
                 name = "Task.retrieveShortTasks",
                 query = "FROM Task WHERE duration <= 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveTasksWithDurationLongerThan",
+                query = "FROM Task WHERE duration > :DURATION"
         )
 })
 
@@ -25,7 +29,7 @@ import java.util.Date;
 )
 
 @Entity
-@Table(name = "tasks")
+@Table(name = "TASKS")
 public class Task {
     private int id;
     private String description;
