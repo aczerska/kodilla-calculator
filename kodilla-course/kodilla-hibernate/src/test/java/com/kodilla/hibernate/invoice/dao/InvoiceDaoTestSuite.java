@@ -79,13 +79,13 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0, invoice2Id);
         Assert.assertNotEquals(0, invoice3Id);
 
-//        //Cleanup
-//        try {
-//            invoiceDao.delete(invoice1Id);
-//            invoiceDao.delete(invoice2Id);
-//            invoiceDao.delete(invoice3Id);
-//        } catch (Exception e) {
-//            //do nothing
-//        }
+        //Cleanup
+        try {
+            invoiceDao.deleteById(invoice1Id);
+            invoiceDao.deleteById(invoice2Id);
+            invoiceDao.deleteById(invoice3Id);
+        } catch (Exception e) {
+            //do nothing
+        }
     }
 }
