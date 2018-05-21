@@ -7,6 +7,13 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.findCompanyWith3Letters",
+        query = "SELECT * FROM companies\n" +
+                "WHERE LEFT(LOWER(company_name),3) = :PARAMETER",
+        resultClass = Company.class
+        )
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -57,5 +64,13 @@ public class Company {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
