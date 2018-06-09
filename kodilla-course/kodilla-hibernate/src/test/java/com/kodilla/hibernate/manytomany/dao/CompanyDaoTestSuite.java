@@ -58,9 +58,9 @@ public class CompanyDaoTestSuite {
 
         //CleanUp
         try {
-            companyDao.deleteById(softwareMachineId);
-            companyDao.deleteById(dataMastersId);
-            companyDao.deleteById(greyMatterId);
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMastersId);
+            companyDao.delete(greyMatterId);
         } catch (Exception e) {
             //do nothing
         }
@@ -105,9 +105,9 @@ public class CompanyDaoTestSuite {
 
         //CleanUp
         try {
-            employeeDao.deleteById(johnSmithId);
-            employeeDao.deleteById(stephanieClarcksonId);
-            employeeDao.deleteById(lindaKovalskyId);
+            employeeDao.delete(johnSmithId);
+            employeeDao.delete(stephanieClarcksonId);
+            employeeDao.delete(lindaKovalskyId);
         } catch (Exception e) {
             //do nothing
         }
@@ -152,9 +152,9 @@ public class CompanyDaoTestSuite {
 
         //CleanUp
         try {
-            companyDao.deleteById(softwareMachineId);
-            companyDao.deleteById(dataMastersId);
-            companyDao.deleteById(greyMatterId);
+            companyDao.delete(softwareMachineId);
+            companyDao.delete(dataMastersId);
+            companyDao.delete(greyMatterId);
         } catch (Exception e) {
             //do nothing
         }
