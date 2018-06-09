@@ -14,6 +14,11 @@ import java.util.List;
         resultClass = Company.class
         )
 
+@NamedQuery(
+        name = "Company.findCompaniesByPattern",
+        query = "FROM Company WHERE name LIKE concat('%', :PATTERN, '%')"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
