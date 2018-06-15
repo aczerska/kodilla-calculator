@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 public class CrudAppTestSuite {
@@ -114,13 +115,15 @@ public class CrudAppTestSuite {
     }
 
     private void removeCrudAppTask(String taskName) throws InterruptedException {
-        //final String XPATH_TASK_NAME =
+        final String DELETE_BUTTON = ".//button[contains(text(), \"Delete\")]";
 
-        driver.findElements(By.xpath("//div[@class=\"datatable__tasks-container\"]/form")).stream()
-                .filter(anyForm -> anyForm.findElement(By.xpath("//fieldset[1]"))
+        while (!driver.findElement(By.xpath(DELETE_BUTTON)).isDisplayed());
+
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
                         .getText().equals(taskName))
                 .forEach(theForm -> {
-                    WebElement deleteButton = theForm.findElement(By.xpath(".//button[@data-task-delete-button]"));
+                    WebElement deleteButton = theForm.findElement(By.xpath(DELETE_BUTTON));
                     deleteButton.click();
                 });
         Thread.sleep(5000);
@@ -138,7 +141,7 @@ public class CrudAppTestSuite {
         String taskName = createCrudAppTestTask();
         Thread.sleep(8000);
         removeCrudAppTask(taskName);
-        assertTrue(checkIfCrudTaskExists(taskName));
+        assertFalse(checkIfCrudTaskExists(taskName));
     }
 }
 
