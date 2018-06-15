@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -60,8 +62,8 @@ public class SearchFacadeTest {
         companyDao.save(greyMatter);
         int greyMatterId = greyMatter.getId();
 
-        //Then
-        searchFacade.searchDataBase("K", "M");
+        List<Company> resultCompanyList = searchFacade.searchDbCompanies("M");
+        List<Employee> resultEmployeeList = searchFacade.searchDbEmploees("t");
 
         //CleanUp
         try {
@@ -74,5 +76,10 @@ public class SearchFacadeTest {
         } catch (Exception e) {
             //do nothing
         }
+
+        //Then
+
+        assertEquals(3, resultCompanyList.size());
+        assertEquals(1, resultEmployeeList.size());
     }
 }

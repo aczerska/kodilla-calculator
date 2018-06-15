@@ -18,14 +18,20 @@ public class SearchFacade {
     @Autowired
     private CompanyDao companyDao;
 
-    public void searchDataBase(String employeePattern, String companyPattern) {
+    public List<Employee> searchDbEmploees(String employeePattern) {
 
         System.out.println("Searching Employees in DB based on given pattern: " + employeePattern);
         List<Employee> employeeList = employeeDao.findEmployeesByPattern(employeePattern);
         System.out.println("Result list of Employees: " + employeeList);
 
-        System.out.println("Searching Companies in DB basedon given pattern: " + companyPattern);
+        return employeeList;
+    }
+
+    public List<Company> searchDbCompanies(String companyPattern) {
+        System.out.println("Searching Companies in DB based on given pattern: " + companyPattern);
         List<Company> companyList = companyDao.findCompaniesByPattern(companyPattern);
         System.out.println("Result list of Companies: " + companyList);
+
+        return companyList;
     }
 }
