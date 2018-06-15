@@ -4,9 +4,7 @@ import com.kodilla.testing2.google.config.WebDriverConfig;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.Random;
@@ -70,7 +68,7 @@ public class CrudAppTestSuite {
                     WebElement buttonCreateCard = theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     buttonCreateCard.click();
                 });
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
     private boolean checkIfTaskExistsInTrello(String taskName) throws InterruptedException {
@@ -93,13 +91,27 @@ public class CrudAppTestSuite {
                 .filter(aHref -> aHref.findElements(By.xpath(".//span[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(aHref -> aHref.click());
 
-        Thread.sleep(8000);
+        Thread.sleep(2000);
 
-        result = driverTrello.findElements(By.xpath("//span")).stream()
-                .filter(theSpan -> theSpan.getText().contains(taskName))
-                .collect(Collectors.toList())
-                .size() > 0;
+        while (true) {
+            try {
+                if (driverTrello.findElement(By.xpath("//div[contains(@class, \"list-cards\")]")).isDisplayed()) {
+                    break;
+                }
+            } catch (NoSuchElementException e) {
+            }
+        }
 
+        while (true) {
+            try {
+                result = driverTrello.findElements(By.xpath("//span")).stream()
+                        .filter(theSpan -> theSpan.getText().contains(taskName))
+                        .collect(Collectors.toList())
+                        .size() > 0;
+                break;
+            } catch (StaleElementReferenceException e) {
+            }
+        }
         driverTrello.close();
 
         return result;
@@ -117,7 +129,8 @@ public class CrudAppTestSuite {
     private void removeCrudAppTask(String taskName) throws InterruptedException {
         final String DELETE_BUTTON = ".//button[contains(text(), \"Delete\")]";
 
-        while (!driver.findElement(By.xpath(DELETE_BUTTON)).isDisplayed());
+        while (!driver.findElement(By.xpath("//fieldset[1]/p[contains(text(), \"" + taskName + "\") ]")).isDisplayed())
+            ;
 
         driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
                 .filter(anyForm -> anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
@@ -126,7 +139,6 @@ public class CrudAppTestSuite {
                     WebElement deleteButton = theForm.findElement(By.xpath(DELETE_BUTTON));
                     deleteButton.click();
                 });
-        Thread.sleep(5000);
     }
 
     @Test
@@ -139,8 +151,8 @@ public class CrudAppTestSuite {
     @Test
     public void shouldRemoveCrudAppTask() throws InterruptedException {
         String taskName = createCrudAppTestTask();
-        Thread.sleep(8000);
         removeCrudAppTask(taskName);
+        Thread.sleep(2000);
         assertFalse(checkIfCrudTaskExists(taskName));
     }
 }
